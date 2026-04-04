@@ -4,119 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Save Humaine | Quiz Bâtisseuse</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        :root { --primary: #e67e22; --dark: #2c3e50; --bg: #fdfaf5; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #333; margin: 0; padding: 0; line-height: 1.6; }
-        header { background: var(--dark); color: white; padding: 3rem 1rem; text-align: center; }
-        .container { max-width: 700px; width: 90%; background: white; margin: -40px auto 40px; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        :root { 
+            --fond: #fff8ef; 
+            --save-vert: #4d6d2a; 
+            --humaine-brun: #412b1a; 
+        }
+
+        body { 
+            font-family: 'Open Sans', sans-serif; 
+            background-color: var(--fond); 
+            color: var(--humaine-brun); 
+            margin: 0; padding: 0; 
+            line-height: 1.6;
+        }
+
+        header { 
+            background-color: white;
+            padding: 3rem 1rem; 
+            text-align: center; 
+            border-bottom: 3px solid var(--save-vert);
+        }
+
+        /* Design du Logo */
+        .logo-save { 
+            font-family: 'Agbalumo', system-ui; 
+            color: var(--save-vert); 
+            font-size: 4rem; 
+            line-height: 1;
+        }
+        .logo-humaine { 
+            font-family: 'Open Sans', sans-serif; 
+            color: var(--humaine-brun); 
+            text-transform: uppercase; 
+            font-weight: 700; 
+            letter-spacing: 5px;
+            font-size: 1.2rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        nav { margin-bottom: 30px; }
+        nav a { 
+            color: var(--save-vert); 
+            text-decoration: none; 
+            font-weight: bold; 
+            border: 2px solid var(--save-vert); 
+            padding: 8px 20px; 
+            border-radius: 25px; 
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--save-vert);
+            color: white;
+        }
+
+        .container { 
+            max-width: 700px; 
+            width: 90%; 
+            margin: 40px auto; 
+            padding: 30px; 
+            background: white;
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(65, 43, 26, 0.08); 
+            text-align: center;
+        }
+
         .question { display: none; }
         .question.active { display: block; animation: fadeIn 0.5s; }
-        button { background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; margin: 10px 5px; width: 100%; font-size: 1rem; transition: 0.3s; }
-        button:hover { background: #d35400; transform: translateY(-2px); }
-        #resultat { display: none; text-align: center; padding: 20px; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    <style>
-    /* Import des polices */
-    @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Open+Sans:wght@400;700&display=swap');
 
-    :root { 
-        --fond: #fff8ef; 
-        --save-vert: #4d6d2a; 
-        --humaine-brun: #412b1a; 
-    }
+        button.quiz-btn { 
+            background-color: var(--save-vert); 
+            color: white; 
+            border: none; 
+            padding: 15px 25px; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bold;
+            font-size: 1rem;
+            width: 100%;
+            margin: 10px 0;
+            transition: 0.3s;
+        }
+        button.quiz-btn:hover { 
+            background-color: var(--humaine-brun);
+            transform: scale(1.02);
+        }
 
-    body { 
-        font-family: 'Open Sans', sans-serif; 
-        background-color: var(--fond); 
-        color: var(--humaine-brun); 
-        margin: 0; padding: 0; 
-    }
+        #resultat { display: none; padding: 20px; }
 
-    header { 
-        background-color: white; /* On laisse le fond clair pour faire ressortir le logo */
-        padding: 3rem 1rem; 
-        text-align: center; 
-        border-bottom: 2px solid var(--save-vert);
-    }
-
-    /* Le Logo façonné selon tes choix */
-    .logo-save { 
-        font-family: 'Agbalumo', cursive; 
-        color: var(--save-vert); 
-        font-size: 3rem; 
-    }
-    .logo-humaine { 
-        font-family: 'Open Sans', sans-serif; 
-        color: var(--humaine-brun); 
-        text-transform: uppercase; 
-        font-weight: 700; 
-        letter-spacing: 3px;
-        font-size: 1.5rem;
-        display: block;
-        margin-top: -10px;
-    }
-
-    .container { 
-        max-width: 700px; 
-        width: 90%; 
-        margin: 40px auto; 
-        padding: 30px; 
-        background: white;
-        border-radius: 15px; 
-        box-shadow: 0 5px 15px rgba(65, 43, 26, 0.1); 
-    }
-
-    button { 
-        background-color: var(--save-vert); 
-        color: white; 
-        border: none; 
-        padding: 15px 30px; 
-        border-radius: 50px; 
-        cursor: pointer; 
-        font-family: 'Open Sans', sans-serif;
-        font-weight: bold;
-    }
-</style>
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
 </head>
 <body>
 
 <header>
-    <nav style="margin-bottom: 20px;">
-        <a href="apropos.html" style="color: #4d6d2a; text-decoration: none; font-weight: bold; border: 2px solid #4d6d2a; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">Qui suis-je ?</a>
+    <nav>
+        <a href="apropos.html">Qui suis-je ?</a>
     </nav>
-
     <div class="logo-save">Save</div>
     <div class="logo-humaine">Humaine</div>
-    
-    <div class="slogan" style="color: #412b1a; margin-top: 15px; font-family: 'Open Sans', sans-serif;">
-        Bâtir avec la sève, pas seulement avec les briques.
-    </div>
+    <p style="margin-top: 20px; font-style: italic;">Bâtir avec la sève, pas seulement avec les briques.</p>
 </header>
 
 <div class="container">
     <div id="quiz">
         <div class="question active" id="q1">
-            <h3>1. Sur un chantier (ou dans un projet), qu'est-ce qui t'inquiète le plus ?</h3>
-            <button onclick="next('q1', 'q2', 'Sève')">Que l'équipe perde sa motivation et son sens.</button>
-            <button onclick="next('q1', 'q2', 'Structure')">Que les délais et les plans ne soient pas respectés.</button>
+            <h3>1. Sur un chantier, qu'est-ce qui t'inquiète le plus ?</h3>
+            <button class="quiz-btn" onclick="next('q1', 'q2', 'Sève')">Que l'équipe perde sa motivation et son sens.</button>
+            <button class="quiz-btn" onclick="next('q1', 'q2', 'Structure')">Que les délais et les plans ne soient pas respectés.</button>
         </div>
 
         <div class="question" id="q2">
-            <h3>2. Face à un imprévu majeur (le "Mur"), ta réaction est...</h3>
-            <button onclick="next('q2', 'q3', 'Bascule')">Chercher une solution radicale, quitte à tout changer.</button>
-            <button onclick="next('q2', 'q3', 'Structure')">Analyser les données pour trouver la faille logique.</button>
+            <h3>2. Face à un imprévu majeur, ta réaction est...</h3>
+            <button class="quiz-btn" onclick="next('q2', 'q3', 'Bascule')">Chercher une solution radicale.</button>
+            <button class="quiz-btn" onclick="next('q2', 'q3', 'Structure')">Analyser les données logiquement.</button>
         </div>
 
         <div class="question" id="q3">
-            <h3>3. Comment aimerais-tu que les gens te décrivent ?</h3>
-            <button onclick="next('q3', 'fin', 'Humain')">Comme une personne empathique qui écoute vraiment.</button>
-            <button onclick="next('q3', 'fin', 'Sève')">Comme une visionnaire qui redonne du souffle.</button>
+            <h3>3. Comment aimerais-tu être décrite ?</h3>
+            <button class="quiz-btn" onclick="next('q3', 'fin', 'Humain')">Empathique et à l'écoute.</button>
+            <button class="quiz-btn" onclick="next('q3', 'fin', 'Sève')">Visionnaire et inspirante.</button>
         </div>
 
         <div id="resultat">
-            <h2>Ton profil dominant : <span id="profil-nom"></span></h2>
+            <h2>Profil dominant : <span id="profil-nom"></span></h2>
             <p id="profil-desc"></p>
-            <button onclick="location.reload()">Recommencer le test</button>
+            <button class="quiz-btn" onclick="location.reload()">Recommencer</button>
         </div>
     </div>
 </div>
@@ -127,26 +148,21 @@
     function next(currentId, nextId, point) {
         scores[point]++;
         document.getElementById(currentId).classList.remove('active');
-        
-        if (nextId === 'fin') {
-            afficherResultat();
-        } else {
-            document.getElementById(nextId).classList.add('active');
-        }
+        if (nextId === 'fin') { afficherResultat(); } 
+        else { document.getElementById(nextId).classList.add('active'); }
     }
 
     function afficherResultat() {
         const gagnant = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
         document.getElementById('resultat').style.display = 'block';
         document.getElementById('profil-nom').innerText = gagnant;
-        
-        const descriptions = {
-            'Sève': "Tu es le moteur émotionnel, celle qui rappelle pourquoi on construit.",
-            'Structure': "Tu es la garante de la solidité, rien n'échappe à ta rigueur.",
-            'Bascule': "Tu es l'agente du changement, tu n'as pas peur de déconstruire pour mieux rebâtir.",
-            'Humain': "Tu es le cœur du projet, tu veilles à ce que personne ne soit oublié en route."
+        const desc = {
+            'Sève': "Tu es le moteur émotionnel du projet.",
+            'Structure': "Tu es la garante de la solidité technique.",
+            'Bascule': "Tu es l'agente du changement radical.",
+            'Humain': "Tu veilles sur chaque personne du chantier."
         };
-        document.getElementById('profil-desc').innerText = descriptions[gagnant];
+        document.getElementById('profil-desc').innerText = desc[gagnant];
     }
 </script>
 
