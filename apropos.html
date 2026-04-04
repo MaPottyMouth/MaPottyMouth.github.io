@@ -4,33 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos | Save Humaine</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        :root { --primary: #e67e22; --dark: #2c3e50; --bg: #fdfaf5; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #333; margin: 0; line-height: 1.6; }
-        header { background: var(--dark); color: white; padding: 2rem 1rem; text-align: center; }
-        .container { max-width: 800px; width: 90%; background: white; margin: 20px auto; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .btn-back { display: inline-block; background: var(--primary); color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; margin-bottom: 20px; transition: 0.3s; }
-        .btn-back:hover { background: #d35400; }
-        h2 { color: var(--dark); border-bottom: 2px solid var(--primary); padding-bottom: 10px; }
+        :root { 
+            --fond: #fff8ef; 
+            --save-vert: #4d6d2a; 
+            --humaine-brun: #412b1a; 
+        }
+
+        body { 
+            font-family: 'Open Sans', sans-serif; 
+            background-color: var(--fond); 
+            color: var(--humaine-brun); 
+            margin: 0; padding: 0; 
+            line-height: 1.6;
+        }
+
+        header { 
+            background-color: white;
+            padding: 2rem 1rem; 
+            text-align: center; 
+            border-bottom: 3px solid var(--save-vert);
+        }
+
+        .logo-save { 
+            font-family: 'Agbalumo', system-ui; 
+            color: var(--save-vert); 
+            font-size: 2.5rem; 
+            line-height: 1;
+        }
+        .logo-humaine { 
+            font-family: 'Open Sans', sans-serif; 
+            color: var(--humaine-brun); 
+            text-transform: uppercase; 
+            font-weight: 700; 
+            letter-spacing: 3px;
+            font-size: 1rem;
+            display: block;
+        }
+
+        nav { margin-bottom: 20px; }
+        nav a { 
+            color: var(--save-vert); 
+            text-decoration: none; 
+            font-weight: bold; 
+            border: 2px solid var(--save-vert); 
+            padding: 6px 15px; 
+            border-radius: 25px; 
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--save-vert);
+            color: white;
+        }
+
+        .container { 
+            max-width: 800px; 
+            width: 90%; 
+            margin: 40px auto; 
+            padding: 30px; 
+            background: white;
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(65, 43, 26, 0.08); 
+        }
+
+        h2 { 
+            color: var(--save-vert); 
+            border-bottom: 2px solid var(--fond);
+            padding-bottom: 10px;
+        }
+
         .skills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-        .skill-tag { background: #eee; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem; }
+        .skill-tag { 
+            background: var(--fond); 
+            color: var(--humaine-brun);
+            padding: 5px 15px; 
+            border-radius: 15px; 
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>À propos de Manon</h1>
+    <nav>
+        <a href="index.html">← Retour au Quiz</a>
+    </nav>
+    <div class="logo-save">Save</div>
+    <div class="logo-humaine">Humaine</div>
 </header>
 
 <div class="container">
-    <a href="index.html" class="btn-back">← Retour au Quiz</a>
-    
     <h2>La Bâtisseuse</h2>
     <p>Étudiante en dernière année de bachelier en <strong>Construction à Verviers</strong>, je suis une passionnée de l'apprentissage autodidacte.</p>
     
     <p>Mon projet <strong>Save Humaine</strong> est né d'une envie de remettre l'humain et la sève au cœur de nos structures de vie. À travers ce site et mon podcast, je partage mes découvertes et mes rencontres avec ceux qui construisent demain.</p>
 
-    <h2>Mes outils</h2>
+    <h2>Mes outils de prédilection</h2>
     <div class="skills">
         <span class="skill-tag">AutoCAD</span>
         <span class="skill-tag">Revit</span>
