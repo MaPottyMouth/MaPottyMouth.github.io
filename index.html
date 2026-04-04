@@ -15,7 +15,68 @@
         button:hover { background: #d35400; transform: translateY(-2px); }
         #resultat { display: none; text-align: center; padding: 20px; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <style>
+    /* Import des polices */
+    @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Open+Sans:wght@400;700&display=swap');
+
+    :root { 
+        --fond: #fff8ef; 
+        --save-vert: #4d6d2a; 
+        --humaine-brun: #412b1a; 
+    }
+
+    body { 
+        font-family: 'Open Sans', sans-serif; 
+        background-color: var(--fond); 
+        color: var(--humaine-brun); 
+        margin: 0; padding: 0; 
+    }
+
+    header { 
+        background-color: white; /* On laisse le fond clair pour faire ressortir le logo */
+        padding: 3rem 1rem; 
+        text-align: center; 
+        border-bottom: 2px solid var(--save-vert);
+    }
+
+    /* Le Logo façonné selon tes choix */
+    .logo-save { 
+        font-family: 'Agbalumo', cursive; 
+        color: var(--save-vert); 
+        font-size: 3rem; 
+    }
+    .logo-humaine { 
+        font-family: 'Open Sans', sans-serif; 
+        color: var(--humaine-brun); 
+        text-transform: uppercase; 
+        font-weight: 700; 
+        letter-spacing: 3px;
+        font-size: 1.5rem;
+        display: block;
+        margin-top: -10px;
+    }
+
+    .container { 
+        max-width: 700px; 
+        width: 90%; 
+        margin: 40px auto; 
+        padding: 30px; 
+        background: white;
+        border-radius: 15px; 
+        box-shadow: 0 5px 15px rgba(65, 43, 26, 0.1); 
+    }
+
+    button { 
+        background-color: var(--save-vert); 
+        color: white; 
+        border: none; 
+        padding: 15px 30px; 
+        border-radius: 50px; 
+        cursor: pointer; 
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
 
