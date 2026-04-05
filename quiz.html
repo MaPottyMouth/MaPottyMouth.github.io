@@ -1,0 +1,19 @@
+// On initialise les 8 compteurs à zéro
+let scores = {
+    Nomade: 0,
+    Connecteur: 0,
+    Inspirateur: 0,
+    Equilibre: 0,
+    Empire: 0,
+    Pedagogue: 0,
+    Cooperatif: 0,
+    Gardien: 0
+};
+
+// La fonction qui ajoute les points
+function ajouterPoints(profils) {
+    // 'profils' sera un tableau comme ['Empire', 'Equilibre']
+    profils.forEach(p => {
+        scores[p]++;
+    });
+}
